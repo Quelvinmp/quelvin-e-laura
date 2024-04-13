@@ -26,12 +26,14 @@ export default function ListaDePresentes() {
       await fetch('/api/gifts-list/list')
         .then((res) => res.json())
         .then((data) => {
-          const orderedData = data.wishList.sort((a: WishList, b: WishList) => {
-            if (!a.boughtBy.length && b.boughtBy.length) return -1
-            if (a.boughtBy.length && !b.boughtBy.length) return 1
-            return 0
-          })
-          setData(orderedData)
+          if (data) {
+            const orderedData = data.wishList.sort((a: WishList, b: WishList) => {
+              if (!a.boughtBy.length && b.boughtBy.length) return -1
+              if (a.boughtBy.length && !b.boughtBy.length) return 1
+              return 0
+            })
+            setData(orderedData)
+          }
           setLoading(false)
         })
     }
