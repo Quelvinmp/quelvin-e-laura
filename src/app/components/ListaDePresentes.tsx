@@ -33,7 +33,11 @@ export default function ListaDePresentes() {
     setLoading(true)
     const getData = async () => {
       console.log('inside', bought);
-      await fetch('/api/gifts-list/list')
+      await fetch('/api/gifts-list/list', {
+        headers: {
+          'Cache-Control': 'no-cache' // Desabilitando o cache
+        }
+      })
         .then((res) => res.json())
         .then((data) => {
           if (data) {
