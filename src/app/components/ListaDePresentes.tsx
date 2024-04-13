@@ -21,6 +21,10 @@ export default function ListaDePresentes() {
   const [loading, setLoading] = useState(true)
   const [bought, setBought] = useState(false)
 
+  const forceUpdate = () => {
+    setBought(currentBought => !currentBought);
+  };
+
   useEffect(() => {
     setLoading(true)
     const getData = async () => {
@@ -52,7 +56,7 @@ export default function ListaDePresentes() {
               {(data.map((item) => (
                 <div key={item.id} className='flex items-center justify-between px-2'>
                   <li className='flex-1' id={item.id} >{item.name}</li>
-                  {!item.boughtBy.length ? <GiftCard key={item.id} item={item} bought={bought} setBought={setBought} />
+                  {!item.boughtBy.length ? <GiftCard key={item.id} item={item} forceUpdate={forceUpdate} />
                     : <div className="align-middle badge badge-warning badge-xs font-bold">Já Ganhamos!</div>
                   }
                 </div>

@@ -19,11 +19,10 @@ type WishList = {
 
 type GiftCardProps = {
   item: WishList;
-  bought: boolean;
-  setBought: any;
+  forceUpdate: any;
 };
 
-export default function GiftCard({ item, bought, setBought }: GiftCardProps) {
+export default function GiftCard({ item, forceUpdate }: GiftCardProps) {
   const [name, setName] = useState('')
   const [loading, setLoading] = useState(false)
 
@@ -38,7 +37,7 @@ export default function GiftCard({ item, bought, setBought }: GiftCardProps) {
         method: 'POST',
       });
 
-      setBought(!bought)
+      forceUpdate()
 
       Swal.bindClickHandler();
       const Toast = Swal.mixin({
