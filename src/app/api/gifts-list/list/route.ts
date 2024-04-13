@@ -15,7 +15,7 @@ export async function GET() {
       description: row.get('description'),
       link: row.get('link'),
       image: row.get('image'),
-      boughtBy: row.get('boughtBy'),
+      boughtBy: row.get('boughtBy') || '',
       type: row.get('type'),
       local: row.get('local'),
       preferences: row.get('preferences'),
