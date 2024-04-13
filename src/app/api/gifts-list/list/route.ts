@@ -1,7 +1,4 @@
 import { NextResponse } from "next/server";
-import { GoogleSpreadsheet } from 'google-spreadsheet';
-import { JWT } from 'google-auth-library';
-import credentials from '../../../../../credentials/google-sheets-api.json'
 import googleConfig from "@/app/services/google";
 
 export async function GET() {
