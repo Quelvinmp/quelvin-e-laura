@@ -25,9 +25,14 @@ export default function ListaDePresentes() {
     setBought(currentBought => !currentBought);
   };
 
+  console.log('outside', bought);
+
+
+
   useEffect(() => {
     setLoading(true)
     const getData = async () => {
+      console.log('inside', bought);
       await fetch('/api/gifts-list/list')
         .then((res) => res.json())
         .then((data) => {
