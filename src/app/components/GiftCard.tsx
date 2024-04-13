@@ -14,6 +14,7 @@ type WishList = {
   type: string;
   local: string;
   preferences: string;
+  isSugestion: boolean;
 }
 
 type GiftCardProps = {
@@ -33,13 +34,12 @@ export default function GiftCard({ item, bought, setBought }: GiftCardProps) {
       const id = event.target.id.value;
       setLoading(true)
 
-      const response = await fetch(`/api/gifts-list/bought?id=${id}&name=${name}`, {
+      await fetch(`/api/gifts-list/bought?id=${id}&name=${name}`, {
         method: 'POST',
       });
 
       setBought(!bought)
 
-    } else {
       Swal.bindClickHandler();
       const Toast = Swal.mixin({
         toast: true,
@@ -47,6 +47,25 @@ export default function GiftCard({ item, bought, setBought }: GiftCardProps) {
         showConfirmButton: false,
         timer: 3000,
         timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        }
+      });
+      Toast.fire({
+        icon: "success",
+        title: "Item marcado como comprado com sucesso!",
+        text: "Nós ficamos muito felizes, agradecemos mais uma veeez!!"
+      });
+    } else {
+      Swal.bindClickHandler();
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 10000,
+        timerProgressBar: true,
+        showCloseButton: true,
         didOpen: (toast) => {
           toast.onmouseenter = Swal.stopTimer;
           toast.onmouseleave = Swal.resumeTimer;
@@ -76,10 +95,10 @@ export default function GiftCard({ item, bought, setBought }: GiftCardProps) {
               </>
             }
             {item.link &&
-              <p className="flex items-baseline justify-between"><strong>Sugestão de Compra:</strong> <Link href={item.link} className='flex-1 text-center btn-link text-secondary text-xs font-bold'>Clique Aqui!</Link></p>
+              <p className="flex items-baseline justify-between"><strong>{item.isSugestion ? 'Sugestão de Compra:' : 'Queremos Este:'}</strong> <Link href={item.link} className='flex-1 text-center btn-link text-secondary text-xs font-bold'>Clique Aqui!</Link></p>
             }
-            <p><strong>Loja:</strong> {item.type}</p>
-            <p><strong>Lugar:</strong> {item.local}</p>
+            {item.type && <p><strong>Loja:</strong> {item.type}</p>}
+            {item.local && <p><strong>Lugar:</strong> {item.local}</p>}
             {item.description && <p><strong>Descrição:</strong> {item.description}</p>}
             {item.preferences && <p><strong>Preferências:</strong> {item.preferences}</p>}
             <hr />

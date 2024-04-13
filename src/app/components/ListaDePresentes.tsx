@@ -13,6 +13,7 @@ type WishList = {
   type: string;
   local: string;
   preferences: string;
+  isSugestion: boolean;
 }
 
 export default function ListaDePresentes() {
@@ -28,8 +29,10 @@ export default function ListaDePresentes() {
         .then((data) => {
           if (data) {
             const orderedData = data.wishList.sort((a: WishList, b: WishList) => {
-              if (!a.boughtBy.length && b.boughtBy.length) return -1
-              if (a.boughtBy.length && !b.boughtBy.length) return 1
+              if (a.boughtBy && b.boughtBy) {
+                if (!a.boughtBy.length && b.boughtBy.length) return -1
+                if (a.boughtBy.length && !b.boughtBy.length) return 1
+              }
               return 0
             })
             setData(orderedData)
@@ -51,7 +54,7 @@ export default function ListaDePresentes() {
               {(data.map((item) => (
                 <div key={item.id} className='flex items-center justify-between px-2'>
                   <li className='flex-1' id={item.id} >{item.name}</li>
-                  {!item.boughtBy.length ? <GiftCard key={item.id} item={item} bought={bought} setBought={setBought} />
+                  {!item.boughtBy || !item.boughtBy.length ? <GiftCard key={item.id} item={item} bought={bought} setBought={setBought} />
                     : <div className="align-middle badge badge-warning badge-xs font-bold">Já Ganhamos!</div>
                   }
                 </div>

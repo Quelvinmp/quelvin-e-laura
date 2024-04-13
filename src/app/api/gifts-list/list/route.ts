@@ -19,6 +19,7 @@ export async function GET() {
       type: row.get('type'),
       local: row.get('local'),
       preferences: row.get('preferences'),
+      isSugestion: row.get('isSugestion') === 'sim' ? true : false,
     }
   })
 
