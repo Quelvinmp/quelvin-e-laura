@@ -25,21 +25,17 @@ export default function ListaDePresentes() {
     setBought(currentBought => !currentBought);
   };
 
-  console.log('outside', bought);
-
-
-
   useEffect(() => {
     setLoading(true)
     const getData = async () => {
-      console.log('inside', bought);
       await fetch('/api/gifts-list/list', {
         headers: {
-          'Cache-Control': 'no-cache' // Desabilitando o cache
-        }
+          'Cache-Control': 'no-cache'
+        },
       })
         .then((res) => res.json())
         .then((data) => {
+          console.log(data)
           if (data) {
             const orderedData = data.wishList.sort((a: WishList, b: WishList) => {
               if (!a.boughtBy.length && b.boughtBy.length) return -1
