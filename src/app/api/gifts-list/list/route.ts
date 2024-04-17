@@ -37,5 +37,9 @@ export async function GET() {
     }
   })
 
-  return NextResponse.json({ wishList });
+  const response = NextResponse.json({ wishList });
+
+  response.headers.set('Cache-Control', 'no-store, max-age=0');
+
+  return response;
 }
