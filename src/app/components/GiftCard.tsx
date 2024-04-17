@@ -35,6 +35,7 @@ export default function GiftCard({ item, forceUpdate }: GiftCardProps) {
 
       await fetch(`/api/gifts-list/bought?id=${id}&name=${name}`, {
         method: 'POST',
+        cache: 'no-store',
       });
 
       forceUpdate()

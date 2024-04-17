@@ -23,7 +23,9 @@ export async function POST(req: NextRequest, res: NextResponse) {
     ],
   });
 
-  const doc = new GoogleSpreadsheet(process.env.SHEET_ID as string, serviceAccountAuth);;
+  const doc = new GoogleSpreadsheet(process.env.SHEET_ID as string, serviceAccountAuth);
+
+  doc.resetLocalCache();
 
   await doc.loadInfo()
 
