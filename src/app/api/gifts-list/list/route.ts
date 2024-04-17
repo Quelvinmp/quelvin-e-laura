@@ -15,9 +15,10 @@ export async function GET() {
 
   const doc = new GoogleSpreadsheet(process.env.SHEET_ID as string, serviceAccountAuth);;
 
+  doc.resetLocalCache();
+
   await doc.loadInfo()
 
-  doc.resetLocalCache();
 
   const rows = await doc.sheetsByIndex[0].getRows()
 
