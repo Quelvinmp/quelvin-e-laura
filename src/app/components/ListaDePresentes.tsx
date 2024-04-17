@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import GiftCard from './GiftCard';
 import Hero from './Hero';
 import axios from 'axios'
+export const fetchCache = 'force-no-store'
 
 type WishList = {
   id: string;
