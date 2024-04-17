@@ -29,13 +29,10 @@ export default function ListaDePresentes() {
     setLoading(true)
     const getData = async () => {
       await fetch('/api/gifts-list/list', {
-        headers: {
-          'Cache-Control': 'no-cache'
-        },
+        cache: 'no-store',
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data)
           if (data) {
             const orderedData = data.wishList.sort((a: WishList, b: WishList) => {
               if (!a.boughtBy.length && b.boughtBy.length) return -1
