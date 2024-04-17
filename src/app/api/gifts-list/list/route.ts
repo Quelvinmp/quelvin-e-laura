@@ -17,6 +17,8 @@ export async function GET() {
 
   await doc.loadInfo()
 
+  doc.resetLocalCache();
+
   const rows = await doc.sheetsByIndex[0].getRows()
 
   const wishList = rows.map((row) => {
