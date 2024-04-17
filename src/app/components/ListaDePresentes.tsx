@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import GiftCard from './GiftCard';
 import Hero from './Hero';
+import axios from 'axios'
 
 type WishList = {
   id: string;
@@ -28,9 +29,14 @@ export default function ListaDePresentes() {
   useEffect(() => {
     setLoading(true)
     const getData = async () => {
-      await fetch('/api/gifts-list/list', { next: { revalidate: 0 } })
-        .then((res) => res.json())
-        .then((data) => {
+      await axios('/api/gifts-list/list', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+        .then((res) => {
+          const data = res.data;
           if (data) {
             const orderedData = data.wishList.sort((a: WishList, b: WishList) => {
               if (!a.boughtBy.length && b.boughtBy.length) return -1
