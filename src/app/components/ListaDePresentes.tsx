@@ -28,9 +28,7 @@ export default function ListaDePresentes() {
   useEffect(() => {
     setLoading(true)
     const getData = async () => {
-      const { signal } = new AbortController()
-
-      await fetch('/api/gifts-list/list', { signal })
+      await fetch('/api/gifts-list/list', { next: { revalidate: 0 } })
         .then((res) => res.json())
         .then((data) => {
           if (data) {
