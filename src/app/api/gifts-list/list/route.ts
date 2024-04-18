@@ -34,6 +34,7 @@ export async function GET() {
       local: row.get('local'),
       preferences: row.get('preferences'),
       isSugestion: row.get('isSugestion') === 'sim' ? true : false,
+      randomId: Math.random()
     }
   })
 

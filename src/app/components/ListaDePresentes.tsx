@@ -16,6 +16,7 @@ type WishList = {
   local: string;
   preferences: string;
   isSugestion: boolean;
+  randomId: number;
 }
 
 export default function ListaDePresentes() {
@@ -33,7 +34,8 @@ export default function ListaDePresentes() {
       await axios('/api/gifts-list/list', {
         method: 'GET',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Cache-Control': 'no-store'
         }
       })
         .then((res) => {
@@ -44,6 +46,7 @@ export default function ListaDePresentes() {
               if (a.boughtBy.length && !b.boughtBy.length) return 1
               return 0
             })
+            console.log(orderedData[0].randomId, orderedData[0].name)
             setData(orderedData)
           }
           setLoading(false)
