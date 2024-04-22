@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import GiftCard from './GiftCard';
 import Hero from './Hero';
 import axios from 'axios'
+import { getList } from '../actions/getList';
 export const fetchCache = 'force-no-store'
 
 type WishList = {
@@ -31,26 +32,29 @@ export default function ListaDePresentes() {
   useEffect(() => {
     setLoading(true)
     const getData = async () => {
-      await axios('/api/gifts-list/list', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Cache-Control': 'no-store'
-        }
-      })
-        .then((res) => {
-          const data = res.data;
-          if (data) {
-            const orderedData = data.wishList.sort((a: WishList, b: WishList) => {
-              if (!a.boughtBy.length && b.boughtBy.length) return -1
-              if (a.boughtBy.length && !b.boughtBy.length) return 1
-              return 0
-            })
-            console.log(orderedData[0].randomId, orderedData[0].name)
-            setData(orderedData)
-          }
-          setLoading(false)
+      const res = await getList()
+      // await axios('/api/gifts-list/list', {
+      //   method: 'GET',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //     'Cache-Control': 'no-store'
+      //   }
+      // })
+      //   .then((res) => {
+      //     const data = res.data;
+      if (res) {
+        const orderedData = res.sort((a: WishList, b: WishList) => {
+          if (!a.boughtBy.length && b.boughtBy.length) return -1
+          if (a.boughtBy.length && !b.boughtBy.length) return 1
+          return 0
         })
+        setData(orderedData)
+      }
+      //       console.log(orderedData[0].randomId, orderedData[0].name)
+      //       setData(orderedData)
+      //     }
+      setLoading(false)
+      //     })
     }
     getData()
   }, [bought])
