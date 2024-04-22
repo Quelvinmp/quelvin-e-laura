@@ -37,6 +37,10 @@ export async function POST(req: NextRequest, res: NextResponse) {
     return NextResponse.json({ message: 'Item não encontrado' })
   }
 
+  if (giftItem.get('boughtBy')) {
+    return NextResponse.json({ message: 'Já ganhamos este item!' })
+  }
+
   giftItem.set('boughtBy', name)
   await giftItem.save()
 
