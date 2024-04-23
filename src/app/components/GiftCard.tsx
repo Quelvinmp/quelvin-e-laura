@@ -94,7 +94,7 @@ export default function GiftCard({ item, forceUpdate }: GiftCardProps) {
               </>
             }
             {item.link &&
-              <p className="flex items-baseline justify-between"><strong>{item.isSugestion ? 'Sugestão de Compra:' : 'Queremos Este:'}</strong> <Link href={item.link} className='flex-1 text-center btn-link text-secondary text-xs font-bold'>Clique Aqui!</Link></p>
+              <p className="flex items-baseline justify-between"><strong>{item.isSugestion ? 'Inspiração:' : 'Queremos Este:'}</strong> <Link href={item.link} className='flex-1 text-center btn-link text-secondary text-xs font-bold'>Clique Aqui!</Link></p>
             }
             {item.type && <p><strong>Loja:</strong> {item.type}</p>}
             {item.local && <p><strong>Lugar:</strong> {item.local}</p>}
