@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="bg-slate-50 scroll-smooth">
+    <html lang="en" className="bg-secondary-content scroll-smooth">
       <head>
         <link
           rel="apple-touch-icon"

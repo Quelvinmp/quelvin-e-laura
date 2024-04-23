@@ -60,9 +60,9 @@ export default function ListaDePresentes() {
   }, [bought])
 
   return (
-    <div className='flex flex-col h-screen  text-secondary'>
+    <div className='flex flex-col h-screen max-w-xl text-secondary '>
       <Hero />
-      <div className='bg-secondary-content flex flex-col'>
+      <div className='bg-secondary-content flex flex-col max-w-md items-center justify-center m-auto'>
         {loading ? <span className=" loading-lg loading loading-dots text-primary m-auto self-center"></span> : null}
         {!loading &&
           (

@@ -88,10 +88,10 @@ export default function GiftCard({ item, forceUpdate }: GiftCardProps) {
           <h3 className="font-bold text-lg">{item.name}</h3>
           <div className='py-4 flex flex-col gap-1'>
             {item.image &&
-              <>
-                <Image src={item.image} alt={item.name} width={100} height={100} className='w-full h-full rounded-xl mb-2' />
+              <div className='flex items-center justify-center'>
+                <Image src={item.image} alt={item.name} width={100} height={100} className='w-full h-full rounded-xl mb-2 min-w-40 max-w-56' />
                 <hr />
-              </>
+              </div>
             }
             {item.link &&
               <p className="flex items-baseline justify-between"><strong>{item.isSugestion ? 'Inspiração:' : 'Queremos Este:'}</strong> <Link href={item.link} className='flex-1 text-center btn-link text-secondary text-xs font-bold'>Clique Aqui!</Link></p>
