@@ -2,7 +2,6 @@
 import { useEffect, useState } from 'react';
 import GiftCard from './GiftCard';
 import Hero from './Hero';
-import axios from 'axios'
 import { getList } from '../actions/getList';
 export const fetchCache = 'force-no-store'
 
@@ -33,15 +32,6 @@ export default function ListaDePresentes() {
     setLoading(true)
     const getData = async () => {
       const res = await getList()
-      // await axios('/api/gifts-list/list', {
-      //   method: 'GET',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //     'Cache-Control': 'no-store'
-      //   }
-      // })
-      //   .then((res) => {
-      //     const data = res.data;
       if (res) {
         const orderedData = res.sort((a: WishList, b: WishList) => {
           if (!a.boughtBy.length && b.boughtBy.length) return -1
@@ -50,11 +40,7 @@ export default function ListaDePresentes() {
         })
         setData(orderedData)
       }
-      //       console.log(orderedData[0].randomId, orderedData[0].name)
-      //       setData(orderedData)
-      //     }
       setLoading(false)
-      //     })
     }
     getData()
   }, [bought])
