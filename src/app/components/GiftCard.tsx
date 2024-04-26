@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import Swal from 'sweetalert2';
 import { handleClipboard } from '../utils/handleClipboard';
-import { FaRegClipboard } from "react-icons/fa";
+import { FaClipboardCheck, FaClipboard } from "react-icons/fa";
 
 
 type WishList = {
@@ -28,6 +28,8 @@ type GiftCardProps = {
 export default function GiftCard({ item, forceUpdate }: GiftCardProps) {
   const [name, setName] = useState('')
   const [loading, setLoading] = useState(false)
+  const [copiedAddress, setCopiedAddress] = useState(false)
+  const [copiedPix, setCopiedPix] = useState(false)
 
   async function handleSubmit(event: any) {
     event.preventDefault();
@@ -83,19 +85,21 @@ export default function GiftCard({ item, forceUpdate }: GiftCardProps) {
   }
 
   function handleClipboardAddress() {
+    setCopiedAddress(true)
     navigator.clipboard.writeText('Rua Gonçalo Ribeiro, 08 - Fundos, Jardim Ouro Preto, Nova Friburgo, RJ, 28633-110')
+    const timeoutAddress = setTimeout(() => {
+      setCopiedAddress(false)
+      clearTimeout(timeoutAddress)
+    }, 2000)
+  }
 
-    Swal.fire({
-      toast: true,
-      text: '',
-      title: 'Endereço Copiado!',
-      icon: 'success',
-      position: 'top-end',
-      showConfirmButton: false,
-      showCloseButton: true,
-      timer: 2000,
-      timerProgressBar: true,
-    })
+  function handleClipboardPix() {
+    setCopiedPix(true)
+    navigator.clipboard.writeText('22992298716')
+    const timeoutAddress = setTimeout(() => {
+      setCopiedPix(false)
+      clearTimeout(timeoutAddress)
+    }, 2000)
   }
 
   return (
@@ -128,9 +132,9 @@ export default function GiftCard({ item, forceUpdate }: GiftCardProps) {
               Prefere dar o valor em pix?
             </div>
             <div className="collapse-content flex flex-col gap-1 ">
-              <div className='items-center gap-2 flex w-full justify-between'>
+              <div className='items-center gap-2 flex w-full justify-between' onClick={handleClipboardPix}>
                 <p tabIndex={0} className=''>22992298716</p>
-                <p className='text-green-500 text-lg cursor-pointer' onClick={handleClipboard}><FaRegClipboard /></p>
+                <p className='text-green-500 text-lg cursor-pointer' >{copiedPix ? <FaClipboardCheck className='scale-125' /> : <FaClipboard />}</p>
               </div>
               <p className='text-xs text-slate-700'>(Laura Medeiros da Rosa Bussinger - NuBank)</p>
             </div>
@@ -141,9 +145,9 @@ export default function GiftCard({ item, forceUpdate }: GiftCardProps) {
               Gostaria de enviar diretamente para nosso endereço?
             </div>
             <div className="collapse-content flex flex-col gap-1">
-              <div className='items-center gap-2 flex w-full justify-between'>
+              <div className='items-center gap-2 flex w-full justify-between' onClick={handleClipboardAddress}>
                 <p tabIndex={0}  >Rua Gonçalo Ribeiro, 08 - Fundos, Jardim Ouro Preto, Nova Friburgo, RJ, 28633-110</p>
-                <p className='text-green-500 text-lg cursor-pointer' onClick={handleClipboardAddress}><FaRegClipboard className='' /></p>
+                <p className='text-green-500 text-lg cursor-pointer' >{copiedAddress ? <FaClipboardCheck className='scale-125' /> : <FaClipboard />}</p>
               </div>
               <p className='text-xs text-slate-700'>(Se optar por isso, favor entrar em contato avisando!)</p>
 
