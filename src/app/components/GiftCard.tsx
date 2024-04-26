@@ -130,7 +130,7 @@ export default function GiftCard({ item, forceUpdate }: GiftCardProps) {
             <div className="collapse-content flex flex-col gap-1 ">
               <div className='items-center gap-2 flex w-full justify-between'>
                 <p tabIndex={0} className=''>22992298716</p>
-                <p className='text-green-500 text-lg cursor-pointer' onClick={handleClipboard}><FaRegClipboard className='' /></p>
+                <p className='text-green-500 text-lg cursor-pointer' onClick={handleClipboard}><FaRegClipboard /></p>
               </div>
               <p className='text-xs text-slate-700'>(Laura Medeiros da Rosa Bussinger - NuBank)</p>
             </div>
@@ -140,9 +140,13 @@ export default function GiftCard({ item, forceUpdate }: GiftCardProps) {
             <div tabIndex={0} className="collapse-title">
               Gostaria de enviar diretamente para nosso endereço?
             </div>
-            <div className="collapse-content items-center gap-2 flex w-full justify-between">
-              <p tabIndex={0}  >Rua Gonçalo Ribeiro, 08 - Fundos, Jardim Ouro Preto, Nova Friburgo, RJ, 28633-110</p>
-              <p className='text-green-500 text-lg cursor-pointer' onClick={handleClipboardAddress}><FaRegClipboard className='' /></p>
+            <div className="collapse-content flex flex-col gap-1">
+              <div className='items-center gap-2 flex w-full justify-between'>
+                <p tabIndex={0}  >Rua Gonçalo Ribeiro, 08 - Fundos, Jardim Ouro Preto, Nova Friburgo, RJ, 28633-110</p>
+                <p className='text-green-500 text-lg cursor-pointer' onClick={handleClipboardAddress}><FaRegClipboard className='' /></p>
+              </div>
+              <p className='text-xs text-slate-700'>(Se optar por isso, favor entrar em contato avisando!)</p>
+
             </div>
           </div>
 
