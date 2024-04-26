@@ -1,26 +1,8 @@
-import Swal from "sweetalert2"
+import { handleClipboard } from "../utils/handleClipboard"
 
 export default function Hero() {
 
-  function handleClipboard() {
-    navigator.clipboard.writeText('22981133063')
 
-    Swal.fire({
-      toast: true,
-      text: '',
-      title: 'Chave Copiada!',
-      html: `
-      <p><strong>Destino</strong>: Quelvin Machado de Paula - Pagseguro / Pagbank</p>
-      <p><strong>Chave</strong>: 22981133063</p>
-      `,
-      icon: 'success',
-      position: 'top-end',
-      showConfirmButton: false,
-      showCloseButton: true,
-      timer: 10000,
-      timerProgressBar: true,
-    })
-  }
   return (
     <div className="hero min-h-screen" style={{ backgroundImage: `url(quelvin-e-laura.jpg)` }}>
       <div className="hero-overlay bg-opacity-60"></div>
