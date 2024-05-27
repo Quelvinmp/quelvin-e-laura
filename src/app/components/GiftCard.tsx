@@ -19,6 +19,7 @@ type WishList = {
   preferences: string;
   isSugestion: boolean;
   isRealGift: boolean;
+  isActive: boolean;
 }
 
 type GiftCardProps = {

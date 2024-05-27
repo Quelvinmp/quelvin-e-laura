@@ -17,6 +17,7 @@ type WishList = {
   preferences: string;
   isSugestion: boolean;
   isRealGift: boolean;
+  isActive: boolean;
 }
 
 export default function ListaDePresentes() {
@@ -40,10 +41,12 @@ export default function ListaDePresentes() {
         const realGifts: any = [];
         const symbolicGifts: any = [];
         res.forEach((item: WishList) => {
-          if (item.isRealGift) {
-            realGifts.push(item)
-          } else {
-            symbolicGifts.push(item)
+          if (item.isActive) {
+            if (item.isRealGift) {
+              realGifts.push(item)
+            } else {
+              symbolicGifts.push(item)
+            }
           }
         })
 

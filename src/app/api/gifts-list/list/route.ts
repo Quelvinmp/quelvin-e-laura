@@ -35,6 +35,7 @@ export async function GET() {
       preferences: row.get('preferences'),
       isSugestion: row.get('isSugestion') === 'sim' ? true : false,
       isRealGift: row.get('isRealGift') === 'sim' ? true : false,
+      isActive: row.get('isActive') === 'sim' ? true : false,
     }
   })
 
