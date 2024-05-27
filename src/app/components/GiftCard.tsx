@@ -143,7 +143,7 @@ export default function GiftCard({ item, forceUpdate }: GiftCardProps) {
                   <p className='text-xs text-slate-700'>(Laura Medeiros da Rosa Bussinger - NuBank)</p>
                 </div>
               </div>
-              <div className="collapse collapse-arrow text-sm">
+{/*               <div className="collapse collapse-arrow text-sm">
                 <input type="radio" name="my-accordion-2" />
                 <div tabIndex={0} className="collapse-title">
                   Gostaria de enviar diretamente para nosso endereço?
@@ -156,7 +156,7 @@ export default function GiftCard({ item, forceUpdate }: GiftCardProps) {
                   <p className='text-xs text-slate-700'>(Se optar por isso, favor entrar em contato avisando!)</p>
 
                 </div>
-              </div>
+              </div> */}
 
               <hr />
 
