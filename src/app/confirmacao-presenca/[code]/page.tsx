@@ -149,7 +149,7 @@ export default function Page({ params }: { params: { code: string } }) {
                         <div className='mt-10 gap-4 flex flex-col'>
                           <p className='text-4xl font-bold'>Casamento<br />Laura & Quelvin</p>
                           <p className='text-2xl font-bold'>24/08/2024 às 10h30</p>
-                          <p className='text-lg font-bold'>Sítio Du Alemão - Rua Dr. Mário Haiut, Mury, Nova Friburgo, CEP: 28615-064</p>
+                          <p className='text-lg font-bold'><a target='_blank' className='link link-info' href='https://www.google.com.br/maps/place/Du+Alem%C3%A3o/@-22.3492525,-42.5053291,237m/data=!3m1!1e3!4m6!3m5!1s0x97897bcac6e15f:0xb2679bbb35a357e8!8m2!3d-22.3492538!4d-42.5049753!16s%2Fg%2F11bychzs19?entry=ttu'>Sítio Du Alemão - Rua Dr. Mário Haiut, Mury, Nova Friburgo, CEP: 28615-064</a></p>
                         </div>
                       </div>
                       <div className='flex flex-col gap-4'>
@@ -175,7 +175,7 @@ export default function Page({ params }: { params: { code: string } }) {
                           <button
                             className='mt-5 btn btn-success w-32'
                             onClick={handleConclusion}
-                          >Concluir</button>
+                          >Confirmar</button>
                         </div>
                         <button className='
                       text-md btn btn-link link-error'
