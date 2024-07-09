@@ -145,11 +145,11 @@ export default function Page({ params }: { params: { code: string } }) {
                   {!loading && (
                     <div className='flex flex-col justify-between h-full'>
                       <div className='flex flex-col justify-center items-center text-center'>
-                        <h1 className='text-2xl font-bold'>Lista de Confirmação</h1>
+                        <h1 className='text-2xl font-bold'>Confirmação de Presença</h1>
                         <div className='mt-10 gap-4 flex flex-col'>
                           <p className='text-4xl font-bold'>Casamento<br />Laura & Quelvin</p>
                           <p className='text-2xl font-bold'>24/08/2024 às 10h30</p>
-                          <p className='text-lg font-bold'>Sítio Du Alemão - Rua Dr. Mário Halut, Mury, Nova Friburgo, CEP: 28615-064</p>
+                          <p className='text-lg font-bold'>Sítio Du Alemão - Rua Dr. Mário Haiut, Mury, Nova Friburgo, CEP: 28615-064</p>
                         </div>
                       </div>
                       <div className='flex flex-col gap-4'>
