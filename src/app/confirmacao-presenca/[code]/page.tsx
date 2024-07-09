@@ -155,10 +155,10 @@ export default function Page({ params }: { params: { code: string } }) {
                       <div className='flex flex-col gap-4'>
                         <div className='flex flex-col bg-white bg-opacity-80 p-4 rounded-xl items-center'>
                           <p className='mb-4 text-secondary-content'>Clique no nome das pessoas que <u>irão ao casamento!</u></p>
-                          <div className='grid grid-cols-2 items-center gap-4 justify-center'>
+                          <div className='grid grid-cols-2 items-center gap-8 justify-center'>
                             {confirmationList.originalList.map((name: string, index: number) => (
-                              <div className="form-control text-white" key={index}>
-                                <label className="label cursor-pointer flex gap-4 ">
+                              <div className="form-control text-center text-white" key={index}>
+                                <label className="label cursor-pointer flex gap-2 items-center justify-center">
                                   <input
                                     type="checkbox"
                                     className="checkbox checkbox-info checkbox-lg"
