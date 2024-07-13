@@ -13,8 +13,13 @@ export default function Hero() {
             <p>&</p>
             <p>Laura</p>
           </h1>
-          <p className="mb-5 mt-64">Agradecemos muuuito seu interesse em nos ajudar nesse momento tão especial de preparativos! O que puder ajudar, será muito bem-vindo! Qualquer dúvida é só falar com a gente ❤️</p>
-          <a href="#lista" className="btn btn-primary w-64 mx-auto">Ir para Lista de Presentes</a>
+          <p className="mb-5 mt-64">Se desejarem nos presentear, a lista de presentes pode ser encontrada nas lojas:</p>
+          <ul>
+            <li>Bazar Opção Utilidades</li>
+            <li>Super Louças</li>
+            <li>Casa & Cia (Alberto Braune)</li>
+          </ul>
+          <p>Agradecemos de coração qualquer carinho! ❤️</p>
           <p className="mt-5 text-xs ">Quer fazer um pix?</p>
           <p className="font-bold btn-link text-xs" onClick={handleClipboard}>Copie a Chave Aqui</p>
         </div>
