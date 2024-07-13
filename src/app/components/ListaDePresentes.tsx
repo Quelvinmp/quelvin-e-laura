@@ -66,7 +66,7 @@ export default function ListaDePresentes() {
   return (
     <div className='flex flex-col h-screen max-w-xl text-secondary '>
       <Hero />
-      <div className='bg-secondary-content flex flex-col max-w-md items-center justify-center m-auto'>
+{/*       <div className='bg-secondary-content flex flex-col max-w-md items-center justify-center m-auto'>
         {loading ? <span className=" loading-lg loading loading-dots text-primary m-auto self-center"></span> : null}
         {!loading &&
           <div className='flex flex-col w-full items-center'>
@@ -104,7 +104,7 @@ export default function ListaDePresentes() {
               )}
           </div>
         }
-      </div>
-    </div>
+      </div> */}
+    </div> 
   );
 }
