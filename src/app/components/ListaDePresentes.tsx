@@ -27,8 +27,6 @@ export default function ListaDePresentes() {
   const [bought, setBought] = useState(false)
   const [listType, setListType] = useState<'real' | 'symbolic'>('real');
 
-
-
   const forceUpdate = () => {
     setBought(currentBought => !currentBought);
   };
@@ -66,10 +64,10 @@ export default function ListaDePresentes() {
   return (
     <div className='flex flex-col h-screen max-w-xl text-secondary '>
       <Hero />
-{/*       <div className='bg-secondary-content flex flex-col max-w-md items-center justify-center m-auto'>
+      <div className='bg-secondary-content flex flex-col items-center justify-center m-auto w-full'>
         {loading ? <span className=" loading-lg loading loading-dots text-primary m-auto self-center"></span> : null}
         {!loading &&
-          <div className='flex flex-col w-full items-center'>
+          <div className='flex flex-col w-full items-center '>
             {symbolicGifts.length > 0 &&
               <div className='flex gap-2 mt-4'>
                 <button className={`${listType === 'real' ? 'btn-success' : 'btn-info btn-outline'} btn btn-sm md:btn-md `} onClick={() => setListType('real')}>Presentes Reais</button>
@@ -79,7 +77,7 @@ export default function ListaDePresentes() {
 
             {listType === 'real'
               ? (
-                <ul id="lista" className='flex flex-col gap-3 my-3 w-full'>
+                <ul id="lista" className='flex flex-col gap-y-3 my-3 w-full'>
                   {(realGifts.map((item) => (
                     <div key={item.id} className='flex items-center justify-between px-2'>
                       <li className='flex-1' id={item.id} >{item.name}</li>
@@ -91,7 +89,7 @@ export default function ListaDePresentes() {
                 </ul>
               )
               : (
-                <ul id="lista" className='flex flex-col gap-3 my-3 w-full'>
+                <ul id="lista" className='flex flex-col gap-y-3 my-3 w-full'>
                   {(symbolicGifts.map((item) => (
                     <div key={item.id} className='flex items-center justify-between px-2 '>
                       <li className='flex-1' id={item.id} >{item.name}</li>
@@ -104,7 +102,7 @@ export default function ListaDePresentes() {
               )}
           </div>
         }
-      </div> */}
+      </div>
     </div> 
   );
 }

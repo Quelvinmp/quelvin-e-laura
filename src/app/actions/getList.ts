@@ -36,7 +36,7 @@ export async function getList() {
       isRealGift: row.get('isRealGift') === 'sim' ? true : false,
       isActive: row.get('isActive') === 'sim' ? true : false,
     }
-  })
+  })  
 
   return wishList;
 }
